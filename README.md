@@ -1,11 +1,11 @@
-# babel-plugin-dotenv
+# babel-plugin-env-json
 
-Loads environment variables from a .env file through `import` statement.
+Loads environment variables from a json file through `import` statement.
 
 ## Installation
 
 ```sh
-$ npm install babel-plugin-dotenv
+$ npm install babel-plugin-env-json
 ```
 
 ## Usage
@@ -14,27 +14,31 @@ $ npm install babel-plugin-dotenv
 
 ```json
 {
-  "plugins": [["babel-plugin-dotenv", {
-      "replacedModuleName": "babel-dotenv"
+  "plugins": [["babel-plugin-env-json", {
+      "replacedModuleName": "babel-env-json"
    }]]
 }
 ```
 
-**.env**
+**env/default.json**
 
-```
-DB_HOST=localhost
-DB_USER=root
-DB_PASS=s1mpl3
+```json
+{
+  "db":{
+    "host":"localhost",
+    "username":"root",
+    "password":"LOL"
+  },
+  "api":{
+    "endpoint":"https://google.com/api"
+  }
+}
 ```
 
-In **whatever.js**
+In **your-code.js**
 
 ```js
-import { DB_HOST, DB_USER, DB_PASS } from "babel-dotenv"
-db.connect({
-  host: DB_HOST,
-  username: DB_USER,
-  password: DB_PASS
-});
+import {db, api} from "babel-env-json"
+connection.connect(db);
+console.log(api.endpoint); // "https://google.com/api"
 ```
