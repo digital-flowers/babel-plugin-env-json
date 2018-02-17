@@ -1,0 +1,26 @@
+{
+  "name": "babel-plugin-env-json",
+  "version": "1.0",
+  "description": "Load environment variables from json file using import statement",
+  "main": "index.js",
+  "keywords": [
+    "env",
+    "json",
+    "babel-plugin",
+    "config"
+  ],
+  "dependencies": {
+    "deepmerge": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.14.0",
+    "babel-runtime": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digital-flowers/babel-plugin-env-json"
+  },
+  "author": "Fareed Alnamrouti",
+  "license": "MIT"
+}
